@@ -5,19 +5,21 @@
 
 int main(void) 
 {
-    /*Seed the random number generator using the current time*/
+    /* Seed the random number generator using the current time */
     srand(time(NULL));
 
-    /*Initialise scores*/
+    /* Initialise scores */
     int playerScore = 0;
     int computerScore = 0;
     int draws = 0;
 
-    /*Start game*/
+    /* Start game */
     char playAgain = 'y';
 
+    /* Continue playing while player chooses y */
     while(playAgain == 'y' || playAgain == 'Y')
     {  
+        /* Get player's choice and generate computer's */
         int player = chooseHand();
         int computer = randomHand(); 
 
@@ -29,7 +31,7 @@ int main(void)
 
         int result = determineWinner(player, computer);
 
-        /*Update score based on result*/
+        /* Update score based on result */
         if (result == 0)
         {
             printf("It's a draw!\n");
@@ -46,13 +48,13 @@ int main(void)
             computerScore++;
         }
 
-        /*Display current scores*/
+        /* Display current scores */
         printf("\nScore:\n");
         printf("Player: %d\n", playerScore);
         printf("Computer: %d\n", computerScore);
         printf("Draws: %d\n", draws);
 
-        /*Confirm if player wants to go another round*/
+        /* Confirm if player wants to go another round */
         printf("\nPress y to play again.\n");
         scanf(" %c", &playAgain);
     }
